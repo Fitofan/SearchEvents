@@ -1,0 +1,146 @@
+$btn-grey-color: #5a6165;
+$green-hover: #44b181;
+
+@media (min-width: 1000px) {
+    .mob-head {
+        display: none !important;
+    }
+}
+
+@media (max-width: 999px) {
+    .mob-head {
+        //background: #142129;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        padding: 5px 0;
+        background: #121c23;
+        .MuiIconButton-root {
+            padding: 0 !important;
+            height: 40px;
+            width: 40px;
+            background: #273541 !important;
+            // background: #41494f !important;
+            color: #fff;
+        }
+
+        .MuiIconButton-colorPrimary {
+            color: #fff !important;
+        }
+        .mob-head-logo {
+            position: relative;
+            top: 2px;
+            margin-right: 8px;
+        }
+        &.mob-head-hide {
+            display: none !important;
+        }
+        .mob-head-container {
+            border-radius: 6px;
+            //background: #707070;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+        .left-part {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            img {
+                height: 30px;
+            }
+            .mob-head-icon {
+            }
+        }
+        .right-part {
+            display: flex;
+            align-items: center;
+            .mob-head-icon {
+                margin-left: 8px;
+            }
+        }
+        .mob-head-nav-icon {
+            margin-left: 8px;
+            position: relative;
+            width: 34px;
+            height: 34px;
+            min-width: 34px;
+            max-width: 34px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i {
+                color: #fff;
+                font-size: 15px;
+            }
+            .not-badge {
+                background: red;
+                display: flex;
+                position: absolute;
+                right: -6px;
+                justify-content: center;
+                align-items: center;
+                top: -4px;
+                color: #fff !important;
+                min-width: 20px;
+                min-height: 20px;
+                border-radius: 16px;
+                text-align: center;
+                font-size: 12px;
+                line-height: 1;
+                border: 1px solid #121c23;
+            }
+            &:hover {
+                i {
+                    color: $green-hover;
+                }
+            }
+        }
+        .mob-head-search {
+            height: 50px;
+            line-height: 50px;
+            flex: 0 0 100%;
+            flex-shrink: 1;
+            margin-right: 2px;
+            color: #fff;
+            font-size: 16px;
+            margin-left: 8px;
+        }
+        .mob-head-burger {
+            width: 34px;
+            height: 34px;
+            min-width: 34px;
+            max-width: 34px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 15px;
+            .burger-bar {
+                height: 1px;
+                background: #fff;
+                border-radius: 2px;
+                margin: 2px 0;
+                width: 17px;
+            }
+        }
+        .mob-head-profile {
+            display: block important;
+            margin-left: 8px;
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+        }
+    }
+}

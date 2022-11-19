@@ -1,0 +1,124 @@
+$green: #44b181;
+$pink: #fa5a66;
+.settings-input-wrap {
+    color: #fff !important;
+    background: #50616b;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    max-width: 600px;
+    * {
+        color: #fff !important;
+    }
+}
+
+.label-success {
+    display: block;
+    width: 100%;
+    font-size: 16px !important;
+    color: $green;
+    margin-top: 10px;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
+.label-danger {
+    display: block;
+    width: 100%;
+    font-size: 16px !important;
+    color: $pink;
+    margin-top: 10px;
+    transition: all 0.2s ease-in-out;
+}
+@media (min-width: 1000px) {
+    .settings-image {
+        width: 100%;
+        margin: 15px 0;
+        max-width: 300px;
+        background-size: cover;
+        border-radius: 10px;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+    .settings-square-image {
+        margin: 15px 0;
+        max-width: 200px;
+        background-size: cover;
+        border-radius: 10px;
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: 100%;
+    }
+    .settings-page-block {
+        width: 100%;
+        background: #273541;
+        padding: 30px;
+        border-radius: 15px;
+        .form-group {
+            margin-bottom: 0.5rem;
+        }
+
+        label.form-group-label {
+            display: block;
+            width: 100%;
+            font-size: 16px !important;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .MuiFormControl-root {
+            width: 100%;
+        }
+        .MuiFormLabel-root {
+            color: #fff;
+        }
+        .MuiCheckbox-root {
+            // color: #fff;
+        }
+    }
+}
+@media (max-width: 999px) {
+    .settings-square-image {
+        margin: 15px 0;
+        max-width: 200px;
+        background-size: cover;
+        border-radius: 10px;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+    .settings-image {
+        margin: 15px 0;
+        max-width: 300px;
+        background-size: cover;
+        border-radius: 10px;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+    .settings-page-block {
+        width: 100%;
+        background: #273541;
+        padding: 15px;
+        border-radius: 15px;
+        overflow: hidden;
+        .form-group {
+            margin-bottom: 0.5rem;
+        }
+
+        label.form-group-label {
+            display: block;
+            width: 100%;
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .MuiFormControl-root {
+            width: 100%;
+        }
+        .MuiFormLabel-root {
+            color: #fff;
+        }
+        .MuiCheckbox-root {
+            color: #fff;
+        }
+    }
+}

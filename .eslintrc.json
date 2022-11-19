@@ -1,0 +1,56 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"plugins": ["react", "@typescript-eslint", "unused-imports"],
+	"rules": {
+		"@typescript-eslint/no-empty-interface": "off",
+		"@typescript-eslint/ban-types": "off",
+		"no-mixed-spaces-and-tabs": 0,
+		"no-empty": "off",
+		"@typescript-eslint/no-empty-function": "off",
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-runtime": "off",
+		"react/prop-types": "off",
+		"react/display-name": "off",
+		"react-hooks/exhaustive-deps": "off",
+		"no-prototype-builtins": "off",
+		"@typescript-eslint/ban-ts-comment": "off",
+		"react/no-unescaped-entities": "off",
+		// "indent": ["error", 4],
+		// "linebreak-style": [
+		//     "error",
+		//     "unix"
+		// ],
+		// "quotes": [
+		//     "error",
+		//     "double"
+		// ],
+		// "semi": [
+		//     "error",
+		//     "always"
+		// ],
+
+		"no-unused-variable": "off",
+		"unused-imports/no-unused-imports": "warn"
+		//  "@typescript-eslint/no-unused-vars": "off",
+		// "unused-imports/no-unused-vars": [
+		// 	"warn",
+		// 	{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+		// ]
+	}
+}
