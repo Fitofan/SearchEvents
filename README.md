@@ -1,5 +1,7 @@
 # Getting Started with FITOFAN
 
+# USE npm install to download all packages
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
