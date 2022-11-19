@@ -21,8 +21,6 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns as DateAdapter } from "@mui/x-date-pickers/AdapterDateFns";
 import { darken } from "polished";
 
-import { StylesProvider } from "@material-ui/styles";
-
 const theme = createMuiTheme({
 	typography: {
 		fontFamily: ["Calibri", "Arial", "sans-serif"].join(),
@@ -379,7 +377,6 @@ interface ProvidersProps {}
 export const Providers: React.FC<ProvidersProps> = ({ children }) => {
 	const { i18n } = useTranslation();
 	const [locale, setLocale] = React.useState<keyof typeof localeMap>("ru");
-
 	React.useEffect(() => {
 		// console.log("selected language", i18n.language);
 		if (i18n.language) {
@@ -394,23 +391,21 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
 		<Provider>
 			<MuiThemeProvider theme={muiTheme}>
 				<ThemeProvider theme={theme}>
-					<StylesProvider injectFirst>
-						<LocalizationProvider
-							locale={localeMap[locale]}
-							dateAdapter={DateAdapter}>
-							<QueryClientProvider client={queryClient}>
-								<MuiPickersUtilsProvider
-									locale={localeMap[locale]}
-									utils={DateFnsUtils}>
-									<SnackbarProvider
-										autoHideDuration={3000}
-										anchorOrigin={{ horizontal: "center", vertical: "bottom" }}>
-										{children}
-									</SnackbarProvider>
-								</MuiPickersUtilsProvider>
-							</QueryClientProvider>
-						</LocalizationProvider>
-					</StylesProvider>
+					<LocalizationProvider
+						locale={localeMap[locale]}
+						dateAdapter={DateAdapter}>
+						<QueryClientProvider client={queryClient}>
+							<MuiPickersUtilsProvider
+								locale={localeMap[locale]}
+								utils={DateFnsUtils}>
+								<SnackbarProvider
+									autoHideDuration={3000}
+									anchorOrigin={{ horizontal: "center", vertical: "bottom" }}>
+									{children}
+								</SnackbarProvider>
+							</MuiPickersUtilsProvider>
+						</QueryClientProvider>
+					</LocalizationProvider>
 				</ThemeProvider>
 			</MuiThemeProvider>
 		</Provider>

@@ -5,7 +5,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import { useTypeSafeTranslation } from "./../utils/useTypeSafeTranslation";
 import { openNotificationsDialog } from "./../atoms";
-import { wsCallback } from "../../createSocket";
 import { useMeStore } from "../../stores/useMeStore";
 import {
 	PanelContainer,
@@ -18,7 +17,6 @@ import {
 } from "./NotificationPanelStyled";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { NotificationItem } from "./NotificationItem";
-import { API } from "../API";
 const ITEMS_PER_PAGE = 15;
 
 export const NotificationPanel = () => {
@@ -59,33 +57,6 @@ export const NotificationPanel = () => {
 			});
 		}
 		if (loadingStatus === "empty" && openNotificationDialog) {
-			try {
-				setLoadingStatus("loading");
-				wsCallback(
-					{
-						op: API.NOTIFICATION.getUserNotifications,
-						d: {
-							startId: infiniteData.startId,
-						},
-					},
-					(fd: any) => {
-						if (fd?.error && fd.error) {
-							setLoadingStatus("empty");
-						} else {
-							if (fd?.notifications?.length > 0) {
-								setInfiniteData({
-									startId: fd.notifications[fd.notifications.length - 1].id,
-								});
-								setLoadingStatus("loaded");
-								setHasMore(true);
-								useNotificationStore
-									.getState()
-									.setAll(fd.notifications, "self");
-							}
-						}
-					}
-				);
-			} catch (err) {}
 		}
 	}, [openNotificationDialog]);
 
@@ -93,32 +64,7 @@ export const NotificationPanel = () => {
 		setOpenNotificationDialog(false);
 	};
 
-	const loadMore = () => {
-		wsCallback(
-			{
-				op: API.NOTIFICATION.getUserNotifications,
-				d: {
-					startId: infiniteData.startId,
-				},
-			},
-			(fd: any) => {
-				if (fd?.error && fd.error) {
-					setLoadingStatus("empty");
-				} else {
-					setTimeout(() => {
-						if (fd?.notifications?.length > 0) {
-							setInfiniteData({
-								startId: fd.notifications[fd.notifications.length - 1].id,
-							});
-							useNotificationStore.getState().addMore(fd.notifications, "self");
-						} else {
-							setHasMore(false);
-						}
-					}, 500);
-				}
-			}
-		);
-	};
+	const loadMore = () => {};
 
 	const fetchMoreNotifications = () => {
 		loadMore();

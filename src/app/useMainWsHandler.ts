@@ -23,26 +23,11 @@ export const useMainWsHandler = () => {
 
 	useEffect(() => {
 		addMultipleWsListener({
-			new_user_toast: (toast) => {
-				useToastStore.getState().addOne(toast);
-			},
-			new_user_notification: (notification) => {
-				useNotificationStore.getState().addOne(notification, "self");
-				useToastStore.getState().addOne(notification);
-				play();
-			},
-			delete_user_notification: ({ id }: any) => {
-				useNotificationStore.getState().deleteItem(id);
-				useToastStore.getState().deleteItem(id);
-			},
+			
 			changeLanguage: ({ language }: any) => {
 				i18n.changeLanguage(language);
 			},
-			hard_user_logout: ({ logout }: any) => {
-				useMeStore.getState().setUser(null);
-				useTokenStore.getState().removeTokens();
-				window.location.href = "/";
-			},
+			
 		});
 	}, []);
 };

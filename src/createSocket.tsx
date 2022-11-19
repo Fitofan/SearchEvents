@@ -25,7 +25,7 @@ export const createSocket = (force?: boolean) => {
 	useSocketStatus.getState().setStatus("connecting");
 	const { accessToken } = useTokenStore.getState();
 
-	socketRef = socketIOClient(ENDPOINT, {});
+	socketRef = socketIOClient.io(ENDPOINT, {});
 	socketRef.on("connect_error", (error: any) => {
 		if (IS_DEV) console.log(error);
 		// ...
